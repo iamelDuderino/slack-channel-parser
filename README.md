@@ -1,5 +1,9 @@
 # slack-channel-parser
 
+## Requirements
+
+GoLang v1.19
+https://go.dev/doc/install
 
 ## Installation 
 
