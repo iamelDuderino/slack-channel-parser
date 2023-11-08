@@ -53,6 +53,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Unmarshals the .json file into a list of Channel structs
 	channels := []Channel{}
 	err = json.Unmarshal(b, &channels)
 	if err != nil {
