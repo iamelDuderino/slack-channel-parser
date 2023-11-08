@@ -35,18 +35,18 @@ type TopicOrPurpose struct {
 
 func main() {
 
-	inp := flag.String("input", defaultInputFilePath, "the full path of the file.json to be parsed")
-	outp := flag.String("output", defaultOutputFilePath, "the full path of the file_parsed.csv to be created")
+	// Command line flags for alternate input/output file paths
+	inp := flag.String("input", defaultInputFilePath, "The full path of the file.json to be parsed. Default is channels.json in the current folder.")
+	outp := flag.String("output", defaultOutputFilePath, "The full path of the file_parsed.csv to be created. Default is channels_parsed.csv in the current folder.")
 	flag.Parse()
-
 	if *inp != "" {
 		inputFilePath = *inp
 	}
-
 	if *outp != "" {
 		outputFilePath = *outp
 	}
 
+	// Reads the input file using the "os" package in the directory this package was run in unless flagged
 	b, err := os.ReadFile(inputFilePath)
 	if err != nil {
 		fmt.Println(err)
@@ -60,7 +60,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Creates the output file using the "os" package in the directory of this Go module
+	// Creates the output file using the "os" package in the directory this package was run in unless flagged
 	output, err := os.Create(outputFilePath)
 	if err != nil {
 		fmt.Println(err)
@@ -84,6 +84,7 @@ func main() {
 		}
 	}
 
+	// Iterate the maximum rows
 	for currentRow <= maxRows {
 		row := []string{}
 		for _, channel := range channels {
@@ -99,6 +100,7 @@ func main() {
 		currentRow += 1
 	}
 
+	// Finalize the output
 	writer.Flush()
 
 }
