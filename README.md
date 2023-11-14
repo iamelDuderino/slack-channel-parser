@@ -5,7 +5,7 @@
 GoLang v1.19
 https://go.dev/doc/install
 
-## Installation 
+## To Install 
 
 go get github.com/iamelDuderino/slack-channel-parser@latest
 
@@ -13,7 +13,11 @@ go get github.com/iamelDuderino/slack-channel-parser@latest
 
 slack-channel-parser -input ".\Path\to\input.json" -output ".\Path\to\output.csv"
 
-
 ### Run on Mac
 
 ~/go/bin/slack-channel-parser -input Path/to/input.json -output Path/to/output.csv
+
+## Or Run without Install (requires Go)
+
+go run github.com/iamelDuderino/slack-channel-parser@latest -input Path/to/input.json -output Path/to/output.csv
+go run github.com/iamelDuderino/slack-channel-parser@latest -input ".\Path\to\input.json" -output ".\Path\to\output.csv"
